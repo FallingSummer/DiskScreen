@@ -2,7 +2,7 @@
 
 服务器监控数据可视化大屏，前后端分离架构，提供实时服务器状态、性能趋势、网络流量、磁盘利用率及告警分布等可视化能力。
 
-![alt text](project/image-1.png)
+![alt text](/screen-main/project/image-1.png)
 ## 系统架构
 
 ```

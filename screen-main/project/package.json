@@ -15,7 +15,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.62.2",
+
     "axios": "^1.7.0",
     "echarts": "^5.0.0",
     "pinia": "^2.3.1",

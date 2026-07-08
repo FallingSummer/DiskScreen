@@ -59,13 +59,16 @@ const networkByHour = computed(() => {
 });
 
 const diskRankData = computed(() => {
-  const map = new Map<string, number>();
+  const map = new Map<string, { sum: number; count: number }>();
   for (const d of store.diskList) {
     const key = `${d.HostId}-${d.DiskName}`;
-    map.set(key, (map.get(key) || 0) + d.UtilAvg);
+    const entry = map.get(key) || { sum: 0, count: 0 };
+    entry.sum += d.UtilAvg;
+    entry.count += 1;
+    map.set(key, entry);
   }
   return Array.from(map.entries())
-    .map(([name, util]) => ({ name, value: Number((util / 2).toFixed(2)) }))
+    .map(([name, { sum, count }]) => ({ name, value: Number((sum / count).toFixed(2)) }))
     .sort((a, b) => b.value - a.value)
     .slice(0, 10);
 });
